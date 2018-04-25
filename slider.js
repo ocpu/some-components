@@ -134,6 +134,7 @@ class MySlider extends LitElement {
         value$=${this.value}
         style="--min:${this.min};--max:${this.max};--val:${this.value};--thumb-diameter:${this.thumbDiameter};--track-height:${this.height};--track-width:${this.width};--fill-color:${this.trackFillColor};--track-color:${this.trackColor};--thumb-color:${this.thumbColor};"
         on-input=${e => {
+          this.value = e.target.valueAsNumber
           e.target.style.setProperty('--val', e.target.value)
           this.dispatchEvent(createEvent('value', e.target.valueAsNumber))
         }}
